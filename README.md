@@ -4,6 +4,8 @@ A tiny iPhone app that shows the current temperature. It's built with Swift and 
 
 When the app opens, it downloads the current temperature for Raleigh, NC from the free [Open-Meteo](https://open-meteo.com/) weather API and shows it in big numbers on the screen.
 
+**Teaching this?** See [CLASS.md](CLASS.md) for a one-session class outline. It builds the app up in four steps, tagged `step-1` to `step-4`.
+
 ## What you need
 
 - A Mac with **Xcode 16 or later** (free from the Mac App Store)
