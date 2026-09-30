@@ -22,3 +22,9 @@ struct Current: Decodable {
 struct Units: Decodable {
     let temperature_2m: String   // a label, like "°F"
 }
+
+// When something goes wrong, the API sends different JSON instead:
+// { "error": true, "reason": "The service is overloaded" }
+struct APIError: Decodable {
+    let reason: String
+}

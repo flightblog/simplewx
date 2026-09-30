@@ -7,6 +7,7 @@ struct ContentView: View {
     // Whenever one changes, SwiftUI redraws the screen automatically.
     // The "?" means the value might be missing (nil) — e.g. before the download finishes.
     @State private var forecast: Forecast?
+    @State private var errorMessage: String?
 
     // The web address we ask for weather. Try changing the latitude/longitude!
     // URL(string:) returns an optional, because not every string is a valid address.
@@ -23,6 +24,11 @@ struct ContentView: View {
                 // specifier: "%.1f" formats the number with 1 digit after the decimal point (74.23 → "74.2").
                 Text("\(temperature, specifier: "%.1f") \(unit)")
                     .font(.system(size: 72, weight: .thin))
+            } else if let errorMessage {
+                // Something went wrong: show the message in red.
+                Text(errorMessage)
+                    .foregroundStyle(.red)
+                    .padding()
             } else {
                 // Still waiting: show a spinning loading indicator.
                 ProgressView()
@@ -39,14 +45,22 @@ struct ContentView: View {
     func loadForecast() async {
         do {
             // 1. Ask the server for the data and wait ("await") for the reply.
-            let (data, _) = try await URLSession.shared.data(from: url)
+            let (data, response) = try await URLSession.shared.data(from: url)
 
-            // 2. Turn the JSON into our Forecast struct. Setting it redraws the screen.
+            // 2. Status code 200 means "OK". Anything else means the server reported a problem.
+            //    "as?" tries to treat the response as an HTTP response (which has a status code).
+            //    If that works, "if let" gives us httpResponse to use; if not, we skip this block.
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                let apiError = try JSONDecoder().decode(APIError.self, from: data)
+                errorMessage = apiError.reason
+                return
+            }
+
+            // 3. Turn the JSON into our Forecast struct. Setting it redraws the screen.
             forecast = try JSONDecoder().decode(Forecast.self, from: data)
         } catch {
             // Any "try" above that fails jumps here (for example: no internet).
-            // For now we only print the error to Xcode's console — the screen keeps spinning.
-            print(error)
+            errorMessage = error.localizedDescription
         }
     }
 }
