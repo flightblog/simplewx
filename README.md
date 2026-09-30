@@ -20,7 +20,7 @@ When the app opens, it downloads the current temperature for Raleigh, NC from th
    (Or click the green **Code** button on GitHub → **Download ZIP**.)
 
 2. Open `SimpleWx.xcodeproj` in Xcode (double-click it).
-3. At the top of the Xcode window, pick an iPhone simulator, such as **iPhone 17**.
+3. At the top of the Xcode window, pick any iPhone simulator from the device menu.
 4. Press the **▶ Run** button (or ⌘R).
 
 The simulator starts, a loading spinner appears for a moment, and then the temperature shows up.
