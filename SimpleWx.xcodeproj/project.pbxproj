@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		733C5505226CE037A40CFA4E /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4EBA0AFED4CDA48A2D7430 /* Forecast.swift */; };
 		B3DA8C09F2F3447F5E3DD359 /* SimpleWxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26CA9F308C231EA566283A8 /* SimpleWxApp.swift */; };
 		E8D7F5746C8C2F803861A4A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7C4E7F85EF8C46AC51351 /* ContentView.swift */; };
 /* End PBXBuildFile section */
@@ -14,6 +15,7 @@
 /* Begin PBXFileReference section */
 		5FE7C4E7F85EF8C46AC51351 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		71FD2C37AF81BA3EF25A175D /* SimpleWx.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SimpleWx.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD4EBA0AFED4CDA48A2D7430 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		E26CA9F308C231EA566283A8 /* SimpleWxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWxApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -38,6 +40,7 @@
 			isa = PBXGroup;
 			children = (
 				5FE7C4E7F85EF8C46AC51351 /* ContentView.swift */,
+				AD4EBA0AFED4CDA48A2D7430 /* Forecast.swift */,
 				E26CA9F308C231EA566283A8 /* SimpleWxApp.swift */,
 			);
 			path = SimpleWx;
@@ -102,6 +105,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8D7F5746C8C2F803861A4A5 /* ContentView.swift in Sources */,
+				733C5505226CE037A40CFA4E /* Forecast.swift in Sources */,
 				B3DA8C09F2F3447F5E3DD359 /* SimpleWxApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
